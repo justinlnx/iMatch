@@ -1,6 +1,8 @@
 import {
   BasicInfo,
   BasicInfoContextProvider,
+  Education,
+  WorkExperience,
 } from './components';
 
 function App() {
@@ -8,6 +10,8 @@ function App() {
     <div className="App">
       <BasicInfoContextProvider>
         <BasicInfo />
+        <Education />
+        <WorkExperience />
       </BasicInfoContextProvider>
     </div>
   );
