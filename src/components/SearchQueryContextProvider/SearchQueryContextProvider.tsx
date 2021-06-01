@@ -1,16 +1,16 @@
 import { useState, useReducer } from 'react';
 import { debug } from 'debug';
 
-import BasicInfoContext from './BasicInfoContext';
-import { IBasicInfoContextProviderProps, IBasicInfoContext } from './BasicInfoContext.interface';
+import SearchQueryContext from './SearchQueryContext';
+import { ISearchQueryContextProviderProps, ISearchQueryContext } from './SearchQueryContext.interface';
 import { companyReducer, INITIAL_COMPANY_STATE } from './companyReducer';
 
 import { useProxiedDispatch } from '../../hooks';
 import { ROLE } from '../../constants';
 
-const debugBasicInfoContext = debug("context:BasicInfo");
+const debugSearchQueryContext = debug("context:SearchQuery");
 
-const BasicInfoContextProvider = (props: IBasicInfoContextProviderProps) => {
+const SearchQueryContextProvider = (props: ISearchQueryContextProviderProps) => {
   const {
     children,
   } = props;
@@ -18,25 +18,31 @@ const BasicInfoContextProvider = (props: IBasicInfoContextProviderProps) => {
   const [locations, setLocations] = useState<string[]>([]);
   const [companies, rawDispatchCompanies] = useReducer(companyReducer, INITIAL_COMPANY_STATE);
   const [role, setRole] = useState<ROLE>();
+  const [degree, setDegree] = useState<string>();
+  const [fos, setFos] = useState<string>();
 
   const dispatchCompanies = useProxiedDispatch(rawDispatchCompanies);
 
-  const context: IBasicInfoContext = {
-    locations,
+  const context: ISearchQueryContext = {
     companies,
+    degree,
+    fos,
+    locations,
     role,
     dispatchCompanies,
+    setDegree,
+    setFos,
     setLocations,
     setRole,
   }
 
-  debugBasicInfoContext(context);
+  debugSearchQueryContext(context);
 
   return (
-    <BasicInfoContext.Provider value={context}>
+    <SearchQueryContext.Provider value={context}>
       {children}
-    </BasicInfoContext.Provider>
+    </SearchQueryContext.Provider>
   )
 };
 
-export default BasicInfoContextProvider;
+export default SearchQueryContextProvider;

@@ -1,6 +1,6 @@
 import {
   BasicInfo,
-  BasicInfoContextProvider,
+  SearchQueryContextProvider,
   Education,
   WorkExperience,
 } from './components';
@@ -8,11 +8,11 @@ import {
 function App() {
   return (
     <div className="App">
-      <BasicInfoContextProvider>
+      <SearchQueryContextProvider>
         <BasicInfo />
         <Education />
         <WorkExperience />
-      </BasicInfoContextProvider>
+      </SearchQueryContextProvider>
     </div>
   );
 }

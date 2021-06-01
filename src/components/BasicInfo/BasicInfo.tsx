@@ -4,9 +4,10 @@ import Divider from '@material-ui/core/Divider';
 
 import useBasicInfoStyles from './BasicInfo.styles';
 import Select from "../Select";
-import BasicInfoContext from '../BasicInfoContextProvider';
+import SearchQueryContext from '../SearchQueryContextProvider';
 import { COMPANY, LOCATION, ROLE } from '../../constants';
 
+/* eslint-disable react-hooks/exhaustive-deps */
 const BasicInfo = () => {
   const {
     locations,
@@ -15,12 +16,12 @@ const BasicInfo = () => {
     dispatchCompanies,
     role,
     setRole,
-  } = useContext(BasicInfoContext);
+  } = useContext(SearchQueryContext);
   const classes = useBasicInfoStyles();
 
   const onChangeLocation = useCallback(
     (event: React.ChangeEvent<{ value: unknown }>) => setLocations([event.target.value as string]),
-    [setLocations],
+    [],
   );
 
   const onChangeCompanies = useCallback(
@@ -30,7 +31,7 @@ const BasicInfo = () => {
 
   const onChangeRole = useCallback(
     (event: React.ChangeEvent<{ value: unknown }>) => setRole(event.target.value as ROLE),
-    [setRole],
+    [],
   );
 
   return (

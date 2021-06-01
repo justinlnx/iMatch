@@ -1,15 +1,27 @@
 export enum COMPANY {
-  AMAZON = 'amazon',
-  APPLE = 'apple',
-  MICROSOFT = 'microsoft',
+  AMAZON = 'Amazon',
+  APPLE = 'Apple',
+  MICROSOFT = 'Microsoft',
 };
+
+export enum DEGREE {
+  BACHELOR = 0,
+  MASTER = 1,
+  PHD = 2,
+}
+
+export const DEGREE_MAP = {
+  [DEGREE.BACHELOR]: 'Bachelor',
+  [DEGREE.MASTER]: 'Master',
+  [DEGREE.PHD]: 'Ph.D.',
+}
 
 export enum LOCATION {
   VANCOUVER = 'Vancouver',
 };
 
 export enum ROLE {
-  DEVELOPER = 'developer',
-  QA = 'qa',
-  MANAGER = 'manager',
+  DEVELOPER = 'Developer/Engineer',
+  QA = 'QA',
+  MANAGER = 'Manager',
 };
