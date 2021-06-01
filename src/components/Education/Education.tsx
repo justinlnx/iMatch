@@ -6,12 +6,13 @@ import Typography from '@material-ui/core/Typography';
 
 import Select from '../Select';
 import SearchQueryContext from '../SearchQueryContextProvider';
-import { DEGREE_MAP } from '../../constants';
+import { DEGREES } from '../../constants';
 import useEducationStyles from './Education.styles';
 
 const THROTTLED_FOS_UPDATE = 500;
 
-/* eslint-disable react-hooks/exhaustive-deps */
+const DEGREE_OPTIONS = DEGREES.map(degree => degree.text);
+
 const Education = () => {
   const classes = useEducationStyles();
   const {
@@ -20,13 +21,14 @@ const Education = () => {
     setFos,
   } = useContext(SearchQueryContext);
 
-  const onChangeDegree = useCallback(
-    (event: React.ChangeEvent<{ value: unknown }>) => setDegree(event.target.value as string),
-    [],
-  );
+  const onChangeDegree = useCallback((event: React.ChangeEvent<{ value: unknown }>) => {
+    setDegree(DEGREES.find(degree => degree.text === (event.target.value as string)));
+    /* eslint-disable-next-line react-hooks/exhaustive-deps */
+  }, []);
 
   const onChangeFos = useCallback(
     (event: React.ChangeEvent<{ value: unknown }>) => setFos(event.target.value as string),
+    /* eslint-disable-next-line react-hooks/exhaustive-deps */
     [],
   );
 
@@ -38,8 +40,8 @@ const Education = () => {
       <Divider />
       <Select
         label="Degree"
-        options={Object.values(DEGREE_MAP)}
-        selected={degree}
+        options={DEGREE_OPTIONS}
+        selected={degree?.text}
         onChange={onChangeDegree}
       />
       <Divider />

@@ -9,6 +9,7 @@ const SearchQueryContext = createContext<ISearchQueryContext>({
   dispatchCompanies: noop,
   setDegree: noop,
   setFos: noop,
+  setLevel: noop,
   setLocations: noop,
   setRole: noop,
 });
