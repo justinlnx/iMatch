@@ -1,27 +1,14 @@
-interface Keyword {
-  text: string,
-  keyword: string,
-}
+import {
+  Degree,
+  Level,
+  Language,
+} from './types';
 
 export enum COMPANY {
   AMAZON = 'Amazon',
   APPLE = 'Apple',
   MICROSOFT = 'Microsoft',
 };
-
-// export enum DEGREE {
-//   BACHELOR = 0,
-//   MASTER = 1,
-//   PHD = 2,
-// }
-
-// export const DEGREE_MAP = {
-//   [DEGREE.BACHELOR]: 'Bachelor',
-//   [DEGREE.MASTER]: 'Master',
-//   [DEGREE.PHD]: 'Ph.D.',
-// }
-
-export interface Degree extends Keyword {};
 
 export const DEGREES: Degree[] = [
   {
@@ -37,8 +24,6 @@ export const DEGREES: Degree[] = [
     text: 'Ph.D.',
   },
 ];
-
-export interface Level extends Keyword {};
 
 export const LEVELS: Level[] = [
   {
@@ -62,6 +47,22 @@ export const LEVELS: Level[] = [
 export enum LOCATION {
   VANCOUVER = 'Vancouver',
 };
+
+export const PROGRAMMING_LANGUAGES: Language[] = [
+  { name: 'C' },
+  { name: 'C++' },
+  { name: 'C#' },
+  { name: 'Golang' },
+  { name: 'Java' },
+  { name: 'JavaScript' },
+  { name: 'Object-C' },
+  { name: 'PHP' },
+  { name: 'Python' },
+  { name: 'R' },
+  { name: 'Ruby' },
+  { name: 'Swift' },
+  { name: 'TypeScript' },
+];
 
 export enum ROLE {
   DEVELOPER = 'Developer/Engineer',

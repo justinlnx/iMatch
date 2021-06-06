@@ -6,7 +6,8 @@ import { ISearchQueryContextProviderProps, ISearchQueryContext } from './SearchQ
 import { companyReducer, INITIAL_COMPANY_STATE } from './companyReducer';
 
 import { useProxiedDispatch } from '../../hooks';
-import { ROLE, Level, Degree } from '../../constants';
+import { ROLE } from '../../constants';
+import { Level, Degree, Language }  from '../../types';
 
 const debugSearchQueryContext = debug("context:SearchQuery");
 
@@ -21,6 +22,7 @@ const SearchQueryContextProvider = (props: ISearchQueryContextProviderProps) => 
   const [degree, setDegree] = useState<Degree>();
   const [fos, setFos] = useState<string>();
   const [level, setLevel] = useState<Level>();
+  const [languages, setLanguages] = useState<Language[]>([]);
 
   const dispatchCompanies = useProxiedDispatch(rawDispatchCompanies);
 
@@ -28,12 +30,14 @@ const SearchQueryContextProvider = (props: ISearchQueryContextProviderProps) => 
     companies,
     degree,
     fos,
+    languages,
     level,
     locations,
     role,
     dispatchCompanies,
     setDegree,
     setFos,
+    setLanguages,
     setLevel,
     setLocations,
     setRole,
