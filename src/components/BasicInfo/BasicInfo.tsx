@@ -1,6 +1,8 @@
 import React, { useContext, useCallback } from 'react';
+import Autocomplete from '@material-ui/lab/Autocomplete';
 import Typography from '@material-ui/core/Typography';
 import Divider from '@material-ui/core/Divider';
+import TextField from '@material-ui/core/TextField';
 
 import useBasicInfoStyles from './BasicInfo.styles';
 import Select from "../Select";
@@ -25,7 +27,7 @@ const BasicInfo = () => {
   );
 
   const onChangeCompanies = useCallback(
-    (event: React.ChangeEvent<{ value: unknown }>) => (dispatchCompanies as any).onChange(event.target.value as COMPANY),
+    (event: React.ChangeEvent<{}>, value: COMPANY[]) => (dispatchCompanies as any).onChange(value),
     [dispatchCompanies],
   );
 
@@ -45,11 +47,28 @@ const BasicInfo = () => {
         onChange={onChangeLocation}
       />
       <Divider />
-      <Select
+      {/* <Select
         label="Company"
         options={Object.values(COMPANY)}
         selected={companies[0]}
         onChange={onChangeCompanies}
+      /> */}
+      <Autocomplete
+        multiple
+        id="tags-outlined"
+        options={Object.values(COMPANY)}
+        getOptionLabel={(option) => option}
+        defaultValue={companies}
+        filterSelectedOptions
+        onChange={onChangeCompanies}
+        renderInput={(params) => (
+          <TextField
+            {...params}
+            variant="outlined"
+            label="Company (ex: Microsoft)"
+            placeholder="Company"
+          />
+        )}
       />
       <Divider />
       <Select

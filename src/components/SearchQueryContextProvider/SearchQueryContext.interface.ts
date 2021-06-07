@@ -1,6 +1,6 @@
 import React from 'react';
 import { COMPANY, ROLE } from '../../constants';
-import { Level, Degree, Language }  from '../../types';
+import { Level, Degree, Language, Development }  from '../../types';
 
 export interface ISearchQueryContext {
   /**
@@ -8,6 +8,7 @@ export interface ISearchQueryContext {
    */
   companies: COMPANY[],
   degree?: Degree,
+  developments: Development[],
   fos?: string, // field of study
   languages: Language[],
   level?: Level,
@@ -19,6 +20,7 @@ export interface ISearchQueryContext {
    */
   dispatchCompanies: React.Dispatch<any>,
   setDegree: React.Dispatch<React.SetStateAction<Degree | undefined>>,
+  setDevelopments: React.Dispatch<React.SetStateAction<Development[]>>,
   setFos: React.Dispatch<React.SetStateAction<string | undefined>>,
   setLanguages: React.Dispatch<React.SetStateAction<Language[]>>,
   setLevel: React.Dispatch<React.SetStateAction<Level | undefined>>,

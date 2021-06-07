@@ -4,6 +4,7 @@ import {
   Education,
   WorkExperience,
   ProgrammingLanguage,
+  DevelopmentPicker,
 } from './components';
 
 function App() {
@@ -14,6 +15,7 @@ function App() {
         <Education />
         <WorkExperience />
         <ProgrammingLanguage />
+        <DevelopmentPicker />
       </SearchQueryContextProvider>
     </div>
   );

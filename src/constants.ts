@@ -2,6 +2,7 @@ import {
   Degree,
   Level,
   Language,
+  Development,
 } from './types';
 
 export enum COMPANY {
@@ -22,6 +23,41 @@ export const DEGREES: Degree[] = [
   {
     keyword: 'Ph.D.',
     text: 'Ph.D.',
+  },
+];
+
+export const DEVELOPMENTS: Development[] = [
+  {
+    name: 'Web Development',
+    skills: ['Angular', 'ASP.NET', 'Django', 'Ember', 'Express', 'HTML/CSS', 'jQuery', 'Node.js', 'PHP', 'Rails', 'React', 'Redux', 'Vue', 'Webpack', 'Grunt'],
+  },
+  {
+    name: 'Mobile Development',
+    skills: ['Android', 'iOS', 'Ionic', 'Kotlin', 'React Native', 'Swift', 'Xcode'],
+  },
+  {
+    name: 'Data Science',
+    skills: ['Artificial Intelligence', 'Machine Learning', 'Tensorflow', 'Scikit-learn', 'Pytorch', 'MATLAB'],
+  },
+  {
+    name: 'Database Development',
+    skills: ['Heroku', 'MangoDB', 'MySQL', 'Postgres', 'SQL', 'Oracle', 'Firebase', 'Cosmos'],
+  },
+  {
+    name: 'Cloud Development',
+    skills: ['AWS', 'Azure'],
+  },
+  {
+    name: 'DevOps Development',
+    skills: ['PowerShell', 'Bash', 'Selenium WebDriver', 'Jest', 'Jasmine', 'Cypress', 'Puppeteer', 'Perf test', 'integration test'],
+  },
+  {
+    name: 'Networking',
+    skills: ['HTTPS', 'TCP/IP'],
+  },
+  {
+    name: 'Operating System',
+    skills: ['Linux/Unix', 'Windows', 'macOS'],
   },
 ];
 
