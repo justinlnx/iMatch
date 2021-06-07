@@ -25,7 +25,6 @@ const DevelopmentPicker = () => {
       <Divider />
       <Autocomplete
         multiple
-        id="tags-outlined"
         options={DEVELOPMENTS}
         getOptionLabel={(option) => option.name}
         defaultValue={undefined}

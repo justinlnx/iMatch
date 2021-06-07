@@ -25,7 +25,6 @@ const ProgrammingLanguage = () => {
       <Divider />
       <Autocomplete
         multiple
-        id="tags-outlined"
         options={PROGRAMMING_LANGUAGES}
         getOptionLabel={(option) => option.name}
         defaultValue={undefined}

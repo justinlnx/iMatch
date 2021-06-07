@@ -47,15 +47,8 @@ const BasicInfo = () => {
         onChange={onChangeLocation}
       />
       <Divider />
-      {/* <Select
-        label="Company"
-        options={Object.values(COMPANY)}
-        selected={companies[0]}
-        onChange={onChangeCompanies}
-      /> */}
       <Autocomplete
         multiple
-        id="tags-outlined"
         options={Object.values(COMPANY)}
         getOptionLabel={(option) => option}
         defaultValue={companies}

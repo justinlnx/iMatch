@@ -1,5 +1,4 @@
-import { useCallback, useContext, useMemo } from 'react';
-import { throttle } from 'lodash';
+import React, { useCallback, useContext } from 'react';
 import Divider from '@material-ui/core/Divider';
 import TextField from '@material-ui/core/TextField';
 import Typography from '@material-ui/core/Typography';
@@ -9,9 +8,9 @@ import SearchQueryContext from '../SearchQueryContextProvider';
 import { DEGREES } from '../../constants';
 import useEducationStyles from './Education.styles';
 
-const THROTTLED_FOS_UPDATE = 500;
-
 const DEGREE_OPTIONS = DEGREES.map(degree => degree.text);
+const WAIT_FOR_STABLE = 1000;
+let timeout: any = null;
 
 const Education = () => {
   const classes = useEducationStyles();
@@ -26,13 +25,12 @@ const Education = () => {
     /* eslint-disable-next-line react-hooks/exhaustive-deps */
   }, []);
 
-  const onChangeFos = useCallback(
-    (event: React.ChangeEvent<{ value: unknown }>) => setFos(event.target.value as string),
-    /* eslint-disable-next-line react-hooks/exhaustive-deps */
-    [],
-  );
+  const onChangeFos = useCallback((event: React.ChangeEvent<{ value: unknown }>) => {
+    clearTimeout(timeout);
 
-  const throttleOnChangeFos = useMemo(() => throttle(onChangeFos, THROTTLED_FOS_UPDATE), [onChangeFos])
+    timeout = setTimeout(() => setFos(event.target.value as string), WAIT_FOR_STABLE);
+    /* eslint-disable-next-line react-hooks/exhaustive-deps */
+  }, []);
 
   return (
     <div className={classes.container}>
@@ -48,7 +46,7 @@ const Education = () => {
       <form noValidate autoComplete="off">
         <TextField
           label="Field of Study"
-          onChange={throttleOnChangeFos}
+          onChange={onChangeFos}
         />
       </form>
     </div>
