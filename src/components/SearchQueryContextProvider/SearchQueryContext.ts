@@ -8,7 +8,7 @@ const SearchQueryContext = createContext<ISearchQueryContext>({
   developments: [],
   languages: [],
   locations: [],
-  dispatchCompanies: noop,
+  setCompanies: noop,
   setDegree: noop,
   setDevelopments: noop,
   setFos: noop,

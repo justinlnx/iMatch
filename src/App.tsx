@@ -3,6 +3,7 @@ import {
   SearchQueryContextProvider,
   Education,
   WorkExperience,
+  PostList,
   ProgrammingLanguage,
   DevelopmentPicker,
 } from './components';
@@ -16,6 +17,7 @@ function App() {
         <WorkExperience />
         <ProgrammingLanguage />
         <DevelopmentPicker />
+        <PostList />
       </SearchQueryContextProvider>
     </div>
   );

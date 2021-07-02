@@ -18,7 +18,7 @@ export interface ISearchQueryContext {
   /**
    * functions
    */
-  dispatchCompanies: React.Dispatch<any>,
+  setCompanies: React.Dispatch<React.SetStateAction<COMPANY[]>>,
   setDegree: React.Dispatch<React.SetStateAction<Degree | undefined>>,
   setDevelopments: React.Dispatch<React.SetStateAction<Development[]>>,
   setFos: React.Dispatch<React.SetStateAction<string | undefined>>,

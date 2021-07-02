@@ -15,7 +15,7 @@ const BasicInfo = () => {
     locations,
     setLocations,
     companies,
-    dispatchCompanies,
+    setCompanies,
     role,
     setRole,
   } = useContext(SearchQueryContext);
@@ -27,8 +27,8 @@ const BasicInfo = () => {
   );
 
   const onChangeCompanies = useCallback(
-    (event: React.ChangeEvent<{}>, value: COMPANY[]) => (dispatchCompanies as any).onChange(value),
-    [dispatchCompanies],
+    (event: React.ChangeEvent<{}>, value: COMPANY[]) => setCompanies(value),
+    [setCompanies],
   );
 
   const onChangeRole = useCallback(
